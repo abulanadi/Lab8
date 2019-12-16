@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lab8
 {
-	//This class encompasses my TSP algorithms
-
-	class TravellingSalesman
+	public class Edge
 	{
-		
+		public int Weight;
+		public Node Parent;
+		public Node Child;
 	}
 }

@@ -10,7 +10,12 @@ namespace Lab8
 	{
 		static void Main(string[] args)
 		{
+			MatrixGen matrix = new MatrixGen();
+			Graph graph = new Graph();
 
+			int[,] testMatrix = matrix.RandomCost(5, 15);
+
+			graph.PrintMatrix(testMatrix, 5);
 		}
 	}
 }
