@@ -45,11 +45,12 @@
   <ItemGroup>
     <Compile Include="Edge.cs" />
     <Compile Include="Graph.cs" />
+    <Compile Include="GreedySalesman.cs" />
     <Compile Include="MatrixGen.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TravellingSalesman.cs" />
+    <Compile Include="BruteSalesman.cs" />
     <Compile Include="TSPTest.cs" />
   </ItemGroup>
   <ItemGroup>

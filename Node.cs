@@ -8,6 +8,8 @@ namespace Lab8
 {
 	public class Node
 	{
+		public int x;
+		public int y;
 		public int Vertex;
 		public List<Edge> Edges = new List<Edge>();
 

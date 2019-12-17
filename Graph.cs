@@ -47,24 +47,24 @@ namespace Lab8
 			return adjMatrix;
 		}
 
-		public void PrintMatrix(int[,] matrix, int Count)
+		public void PrintMatrix(double[,] matrix, int Count)
         {
             Console.Write("       ");
-            for (int i = 0; i < Count; i++)
-            {
-                Console.Write("{0}  ", i);
+			for (int i = 0; i < Count; i++)
+			{
+				Console.Write(string.Format("{0, -12} ", i));
             }
 
             Console.WriteLine();
 
             for (int i = 0; i < Count; i++)
             {
-                Console.Write("{0} | [ ", i);
+                Console.Write(string.Format("{0} | [ ", i));
 
                 for (int j = 0; j < Count; j++)
                 {
 
-                    Console.Write(" {0},", matrix[i, j]);
+                    Console.Write(string.Format("{0, -10}, ", matrix[i, j]));
 
                 }
                 Console.Write(" ]\r\n");
