@@ -16,7 +16,7 @@ namespace Lab8
 			GreedySalesman greedy = new GreedySalesman();
 
 			//double[,] testMatrix1 = matrix.RandomCost(3, 100);
-			//double[,] testMatrix2 = matrix.EuclideanCost(4, 100);
+			//double[,] testMatrix2 = matrix.EuclideanCost(5, 100);
 			//double[,] testMatrix3 = matrix.CircularCost(4, 100);
 
 			//graph.PrintMatrix(testMatrix3, 10);

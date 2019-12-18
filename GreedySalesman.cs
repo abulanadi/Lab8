@@ -31,7 +31,7 @@ namespace Lab8
 
 		public double[] Greedy(double[,] matrix)
 		{
-			nodes = matrix.GetLength(0);
+			nodes = matrix.GetLength(1);
 			int[] visited = new int[nodes];
 			visited[0] = 1;
 			myStack.Push(1);
@@ -156,27 +156,31 @@ namespace Lab8
 		{
 			string resultsFolderPath = "C:\\Users\\Adria\\School Stuff\\CSC482\\Lab8";
 			Console.WriteLine("Input Size\tExpected Cost\tAvgGreedCost\tAvg SQR (10 Trials)");
-			double expectedCost = 0;
-			double greedyCost = 0;
+			double trialCost = 0;
+			double greedyCostTotal = 0;
 			int numberOfTrials = 10;
-			for(int i = 4; i <= 12; i++)
+			for(int i = 4; i <= 11; i++)
 			{
 				for(int trial = 1; trial <= numberOfTrials; trial++)
 				{
 					double[,] testMatrix = matrixGen.EuclideanCost(i, 100);
-					brute.BruteForce(testMatrix);
-					expectedCost = brute.TravelCost(BruteSalesman.bestTour, testMatrix);
-
 					double[] greedyArray = Greedy(testMatrix);
-					greedyCost += GreedyTravelCost(greedyArray, testMatrix);
+					double currentCost = GreedyTravelCost(greedyArray, testMatrix);
+					brute.BruteForce(testMatrix);
+					trialCost = brute.TravelCost(BruteSalesman.bestTour, testMatrix);
+
+					
+					//Console.WriteLine(currentCost);
+					greedyCostTotal += currentCost;
 				}
-				double averageGreedyCost = greedyCost / 10;
-				double averageSQR = averageGreedyCost / expectedCost;
-				Console.WriteLine("{0, -10}\t{1,10}\t{2,10}\t{3,10}", i,expectedCost, averageGreedyCost, averageSQR);
+
+				double averageGreedyCost = greedyCostTotal / numberOfTrials;
+				double averageSQR = averageGreedyCost / trialCost;
+				Console.WriteLine("{0, -10}\t{1,10}\t{2,10}\t{3,10}", i,trialCost, averageGreedyCost, averageSQR);
 
 				using (StreamWriter outputFile = new StreamWriter(Path.Combine(resultsFolderPath, resultFile), true))
 				{
-					outputFile.WriteLine("{0, -10}\t{1,10}\t{2,10}\t{3,10}", i, expectedCost, averageGreedyCost, averageSQR);
+					outputFile.WriteLine("{0, -10}\t{1,10}\t{2,10}\t{3,10}", i, trialCost, averageGreedyCost, averageSQR);
 				}
 			}
 		}
