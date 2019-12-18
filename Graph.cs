@@ -52,7 +52,7 @@ namespace Lab8
             Console.Write("       ");
 			for (int i = 0; i < Count; i++)
 			{
-				Console.Write(string.Format("{0, -12} ", i));
+				Console.Write(string.Format("{0, -9} ", i));
             }
 
             Console.WriteLine();
@@ -64,7 +64,7 @@ namespace Lab8
                 for (int j = 0; j < Count; j++)
                 {
 
-                    Console.Write(string.Format("{0, -10}, ", matrix[i, j]));
+                    Console.Write(string.Format("{0, -8}, ", matrix[i, j]));
 
                 }
                 Console.Write(" ]\r\n");

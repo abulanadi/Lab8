@@ -11,9 +11,9 @@ namespace Lab8
 	{
 		Random random = new Random();
 
-		public int[,] RandomCost(int vertices, int maxCost)
+		public double[,] RandomCost(int vertices, int maxCost)
 		{
-			int[,] adjMatrix = new int[vertices, vertices];
+			double[,] adjMatrix = new double[vertices, vertices];
 			
 			for(int i = 0; i < vertices; i++)
 			{

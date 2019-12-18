@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,10 @@ namespace Lab8
 
 	class BruteSalesman
 	{
+		MatrixGen matrixGen = new MatrixGen();
 		Graph graph = new Graph();
-		static Stopwatch stopwatch = new Stopwatch();
-		static int[] bestTour;
+		//static Stopwatch stopwatch = new Stopwatch();
+		public static int[] bestTour;
 		static double leastCost = 9999999999;
 		static double[,] costMatrix;
 		
@@ -117,6 +119,37 @@ namespace Lab8
 			Console.Write("0");
 			Console.WriteLine();
 			Console.WriteLine("Optimal path cost: {0}", leastCost);
+		}
+
+		public void BruteTest(string resultFile)
+		{
+			string resultsFolderPath = "C:\\Users\\Adria\\School Stuff\\CSC482\\Lab8";
+			int maxInput = 20;
+			double numberOfTrials = 10;
+			Stopwatch stopwatch = new Stopwatch();
+
+			double nanoSecs = 0;
+			Console.WriteLine("Input Size\tAvg Time (ns)");
+
+			for(int i = 1; i <= maxInput; i++)
+			{
+				for(int trial = 1; trial <= numberOfTrials; trial++)
+				{
+					double[,] testMatrix = matrixGen.RandomCost(i, 100);
+
+					stopwatch.Restart();
+					BruteForce(testMatrix);
+					stopwatch.Stop();
+					nanoSecs += stopwatch.Elapsed.TotalMilliseconds * 1000000;
+				}
+				double averageTrialTime = nanoSecs / numberOfTrials;
+				Console.WriteLine("{0, -10}\t{1, 16}", i, averageTrialTime);
+
+				using (StreamWriter outputFile = new StreamWriter(Path.Combine(resultsFolderPath, resultFile), true))
+				{
+					outputFile.WriteLine("{0, -10}\t{1, 16}", i, averageTrialTime);
+				}
+			}
 		}
 	}
 }

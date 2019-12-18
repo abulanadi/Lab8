@@ -13,14 +13,20 @@ namespace Lab8
 			MatrixGen matrix = new MatrixGen();
 			Graph graph = new Graph();
 			BruteSalesman brute = new BruteSalesman();
+			GreedySalesman greedy = new GreedySalesman();
 
-			//int[,] testMatrix = matrix.RandomCost(5, 15);
-			double[,] testMatrix2 = matrix.EuclideanCost(5, 100);
-			double[,] testMatrix3 = matrix.CircularCost(10, 100);
-		
+			//double[,] testMatrix1 = matrix.RandomCost(3, 100);
+			//double[,] testMatrix2 = matrix.EuclideanCost(4, 100);
+			//double[,] testMatrix3 = matrix.CircularCost(4, 100);
+
 			//graph.PrintMatrix(testMatrix3, 10);
-			//brute.BruteForce(testMatrix3);
-			brute.BruteCorrectness(testMatrix3);
+			//brute.BruteForce(testMatrix2);
+			//brute.BruteCorrectness(testMatrix3);
+			//greedy.GreedyCorrectness(testMatrix2);
+
+			//brute.BruteTest("Pretest1.txt");
+			//greedy.GreedyTest("GreedyPretestDouble.txt");
+			greedy.HeuristicTest("HeuristicTest2.txt");
 		}
 	}
 }
